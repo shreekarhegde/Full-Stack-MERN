@@ -1,11 +1,8 @@
-
-
+let store = [];
 function order(x,y,initPos,instruction){
     let direction;
-    let result = [];
     store = instruction.split('');
     store.forEach(element => {
-        //console.log(element,initPos);
         if(initPos == 'N'){
         switch(element){
             case 'L':
@@ -13,10 +10,9 @@ function order(x,y,initPos,instruction){
             case 'R':
             direction = 'E'
             case 'M':
-            y++
+            y++;
         }
         initPos = direction || initPos;
-        //console.log(initPos);
     }
         else if(initPos == 'S'){
             switch(element){
@@ -28,7 +24,6 @@ function order(x,y,initPos,instruction){
                 y--;
             }
             initPos = direction || initPos;
-            //console.log(initPos);
         }
         else if(initPos == 'W'){
             switch(element){
@@ -40,7 +35,6 @@ function order(x,y,initPos,instruction){
                 x -= 1; 
             }
             initPos = direction || initPos;
-           // console.log(initPos);
         }
         else if(initPos == 'E'){
             switch(element){
@@ -52,14 +46,10 @@ function order(x,y,initPos,instruction){
                 x += 1;
             }
             initPos = direction || initPos;
-            //console.log(initPos);
         }   
-    });
-     
-     return `${x} ${y} ${direction}`;
+    });    
+     //return `${x} ${y} ${direction}`;
+     return x + ' ' + y + ' '+ direction;
 }
-
 console.log(order(1,2,'N','LMLMLMLMM'));
-console.log(order(3,3,'E','MMRMMRMRRM'))
-
-//console.log(storeDir);  
+console.log(order(3,3,'E','MMRMMRMRRM'));  
